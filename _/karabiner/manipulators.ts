@@ -198,137 +198,6 @@ const ist = [
   },
 ] as const;
 
-const mouse = [
-  {
-    from: {
-      key_code: config.keyMap.oLl.keys.s,
-      "modifiers": {
-        mandatory: config.keyMap.oLl.modifiers,
-      },
-    },
-    type: "basic",
-    to: [
-      {
-        "mouse_key": {
-          "x": -700,
-        },
-      },
-    ],
-  },
-  {
-    from: {
-      key_code: config.keyMap.oLl.keys.d,
-      "modifiers": {
-        mandatory: config.keyMap.oLl.modifiers,
-      },
-    },
-    type: "basic",
-    to: [
-      {
-        "mouse_key": {
-          "y": 700,
-        },
-      },
-    ],
-  },
-  {
-    from: {
-      key_code: config.keyMap.oLl.keys.f,
-      "modifiers": {
-        mandatory: config.keyMap.oLl.modifiers,
-      },
-    },
-    type: "basic",
-    to: [
-      {
-        "mouse_key": {
-          "x": 700,
-        },
-      },
-    ],
-  },
-  {
-    from: {
-      key_code: config.keyMap.oLl.keys.e,
-      "modifiers": {
-        mandatory: config.keyMap.oLl.modifiers,
-      },
-    },
-    type: "basic",
-    to: [
-      {
-        "mouse_key": {
-          "y": -700,
-        },
-      },
-    ],
-  },
-  {
-    from: {
-      key_code: config.keyMap.oLl.keys.leftArrow,
-      "modifiers": {
-        mandatory: config.keyMap.oLl.modifiers,
-      },
-    },
-    type: "basic",
-    to: [
-      {
-        "mouse_key": {
-          "horizontal_wheel": 32,
-        },
-      },
-    ],
-  },
-  {
-    from: {
-      key_code: config.keyMap.oLl.keys.rightArrow,
-      "modifiers": {
-        mandatory: config.keyMap.oLl.modifiers,
-      },
-    },
-    type: "basic",
-    to: [
-      {
-        "mouse_key": {
-          "horizontal_wheel": -32,
-        },
-      },
-    ],
-  },
-  {
-    from: {
-      key_code: config.keyMap.oLl.keys.upArrow,
-      "modifiers": {
-        mandatory: config.keyMap.oLl.modifiers,
-      },
-    },
-    type: "basic",
-    to: [
-      {
-        "mouse_key": {
-          "vertical_wheel": -32,
-        },
-      },
-    ],
-  },
-  {
-    from: {
-      key_code: config.keyMap.oLl.keys.downArrow,
-      "modifiers": {
-        mandatory: config.keyMap.oLl.modifiers,
-      },
-    },
-    type: "basic",
-    to: [
-      {
-        "mouse_key": {
-          "vertical_wheel": 32,
-        },
-      },
-    ],
-  },
-];
-
 const windowPosition = config.window.map((v) => ({
   from: {
     key_code: config.keyMap.tab.keys[v.key],
@@ -346,9 +215,9 @@ const windowPosition = config.window.map((v) => ({
 
 const windowFocus = config.window.map((v) => ({
   from: {
-    key_code: config.keyMap.delete.keys[v.key],
+    key_code: config.keyMap.upArrow.keys[v.key],
     modifiers: {
-      mandatory: config.keyMap.delete.modifiers,
+      mandatory: config.keyMap.upArrow.modifiers,
     },
   },
   type: "basic",
@@ -422,9 +291,9 @@ const appSwitching = [
   {
     description: "All spaces",
     from: {
-      key_code: config.keyMap.layer.keys.sym2,
+      key_code: config.keyMap.ll.keys.sym2,
       modifiers: {
-        mandatory: config.keyMap.layer.modifiers,
+        mandatory: config.keyMap.ll.modifiers,
       },
     },
     type: "basic",
@@ -436,11 +305,11 @@ const appSwitching = [
     ],
   },
   {
-    description: "alt + tab current スペース",
+    description: "AltTab current スペース",
     from: {
-      key_code: config.keyMap.layer.keys.num,
+      key_code: config.keyMap.ll.keys.num,
       modifiers: {
-        mandatory: config.keyMap.layer.modifiers,
+        mandatory: config.keyMap.ll.modifiers,
       },
     },
     type: "basic",
@@ -452,11 +321,11 @@ const appSwitching = [
     ],
   },
   {
-    description: "alt + tab all スペース",
+    description: "AltTab all スペース",
     from: {
-      key_code: config.keyMap.layer.keys.sym1,
+      key_code: config.keyMap.ll.keys.sym1,
       modifiers: {
-        mandatory: config.keyMap.layer.modifiers,
+        mandatory: config.keyMap.ll.modifiers,
       },
     },
     type: "basic",
@@ -626,7 +495,7 @@ const globalShortCut = [
   },
   {
     from: {
-      key_code: "m",
+      key_code: "h",
       modifiers: {
         mandatory: ["control"],
       },
@@ -634,7 +503,21 @@ const globalShortCut = [
     type: "basic",
     to: [
       {
-        key_code: "spacebar",
+        key_code: "delete_or_backspace",
+      },
+    ],
+  },
+  {
+    from: {
+      key_code: "d",
+      modifiers: {
+        mandatory: ["control"],
+      },
+    },
+    type: "basic",
+    to: [
+      {
+        key_code: "delete_forward",
       },
     ],
   },
@@ -717,7 +600,6 @@ export const manipulators = [
   ...appSwitching,
   ...windowPosition,
   ...windowFocus,
-  ...mouse,
   ...app,
   ...shortCut,
   ...soundEffect,
